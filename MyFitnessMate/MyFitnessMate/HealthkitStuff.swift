@@ -263,8 +263,34 @@ func startObservingQueries() {
         
     }
     
-    func getExercsieData() {
-        
+    func getExercsieData(forDate date: Date, _ completion: ((Double, Error?) -> Void)!) {
+        let cal = Calendar.current
+        let startDate = cal.startOfDay(for: date)
+        var components = DateComponents()
+        components.day = 1
+        components.second = -1
+        let endDate = cal.date(byAdding: components, to: startDate)
+        let stepsCount = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.appleExerciseTime)
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictStartDate)
+        let interval: NSDateComponents = NSDateComponents()
+        interval.day  = 1
+        let query = HKStatisticsCollectionQuery(quantityType: stepsCount!, quantitySamplePredicate: predicate, options: [.cumulativeSum], anchorDate: startDate as Date, intervalComponents: interval as DateComponents)
+        query.initialResultsHandler = {query, results, error in
+            if error != nil{
+                print("something went wrong")
+                return
+            }
+            var exercise = 0.0
+            if let myResults = results, let endDate = endDate {
+                myResults.enumerateStatistics(from: startDate, to: endDate) {statistics, _ in
+                    if let quantity = statistics.sumQuantity() {
+                        exercise = quantity.doubleValue(for: HKUnit.minute())
+                    }
+                }
+            }
+            completion(round(exercise), error)
+        }
+        healthStore.execute(query)
     }
     
     func getSleepAnalysisData() {
@@ -274,10 +300,10 @@ func startObservingQueries() {
     func getActiveEnergyData(forDate date: Date, _ completion: ((Double, Error?) -> Void)!) {
         let cal = Calendar.current
         let startDate = cal.startOfDay(for: date)
-        var comps = DateComponents()
-        comps.day = 1
-        comps.second = -1
-        let endDate = cal.date(byAdding: comps, to: startDate)
+        var components = DateComponents()
+        components.day = 1
+        components.second = -1
+        let endDate = cal.date(byAdding: components, to: startDate)
         let stepsCount = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.activeEnergyBurned)
         let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictStartDate)
         let interval: NSDateComponents = NSDateComponents()
@@ -302,8 +328,26 @@ func startObservingQueries() {
         healthStore.execute(query)
     }
     
-    func getWorkoutData() {
-        
+    func getWorkoutData(forDate date: Date, _ completion: ((Int, Error?) -> Void)!) {
+        let cal = Calendar.current
+        let startDate = cal.startOfDay(for: date)
+        var components = DateComponents()
+        components.day = 1
+        components.second = -1
+        let endDate = cal.date(byAdding: components, to: startDate)
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: true)
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: HKQueryOptions())
+        let sampleQuery = HKSampleQuery(sampleType: HKWorkoutType.workoutType(), predicate: predicate, limit: 0, sortDescriptors: [sortDescriptor]) { (_, results, error) -> Void in
+            
+            var eligible = 0
+            if let myResults = results as? [HKWorkout] {
+                for workout in myResults where workout.duration >= 600 {
+                    eligible += 1
+                }
+            }
+            completion(eligible, error)
+        }
+        healthStore.execute(sampleQuery)
     }
     
     func getCaloriesData() {
@@ -318,12 +362,63 @@ func startObservingQueries() {
         
     }
     
-    func getWaterData() {
-        
+    func getWaterData(forDate date: Date, _ completion: ((Double, Error?) -> Void)!) {
+        let cal = Calendar.current
+        let startDate = cal.startOfDay(for: date)
+        var components = DateComponents()
+        components.day = 1
+        components.second = -1
+        let endDate = cal.date(byAdding: components, to: startDate)
+        let stepsCount = HKQuantityType.quantityType(forIdentifier: HKQuantityTypeIdentifier.dietaryWater)
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictStartDate)
+        let interval: NSDateComponents = NSDateComponents()
+        interval.day = 1
+        let query = HKStatisticsCollectionQuery(quantityType: stepsCount!, quantitySamplePredicate: predicate, options: [.cumulativeSum], anchorDate: startDate, intervalComponents: interval as DateComponents)
+        query.initialResultsHandler = {query, results, error in
+                  
+            if error != nil {
+                print("something went wrong")
+                return
+            }
+            var water = 0.0
+            if let myResults = results, let endDate = endDate {
+                myResults.enumerateStatistics(from: startDate, to: endDate) { statistics, _ in
+                    if let quantity = statistics.sumQuantity() {
+                        water = quantity.doubleValue(for: HKUnit.fluidOunceUS())
+                    }
+                }
+            }
+            completion(floor(water), error)
+        }
+        healthStore.execute(query)
     }
     
-    func getBodyMassData() {
-        
+    func getBodyMassData(forDate date: Date, _ completion: ((Double, Error?) -> Void)!) {
+        let cal = Calendar.current
+        var startComponents = DateComponents()
+        startComponents.year = 2002
+        startComponents.month = 1
+        startComponents.day = 1
+        let startDate = startComponents.date
+        var components = DateComponents()
+        components.day = 1
+        components.second = -1
+        let endDate = cal.date(byAdding: components, to: cal.startOfDay(for: date))
+        let predicate = HKQuery.predicateForSamples(withStart: startDate, end: endDate, options: .strictStartDate)
+        let weight = HKObjectType.quantityType(forIdentifier: .bodyMass)
+        let sortDescriptor = NSSortDescriptor(key: HKSampleSortIdentifierStartDate, ascending: false)
+        let query = HKSampleQuery(sampleType: weight!, predicate: predicate, limit: 1, sortDescriptors: [sortDescriptor]) {(query, results, error) in
+            if error != nil {
+                print("something went wrong")
+                return
+            }
+            var bodyMass = 0.0
+            if let result = results?.first as? HKQuantitySample {
+                bodyMass = result.quantity.doubleValue(for: HKUnit.gram())
+            }
+            completion(bodyMass, error)
+        }
+        healthStore.execute(query)
     }
     
     
