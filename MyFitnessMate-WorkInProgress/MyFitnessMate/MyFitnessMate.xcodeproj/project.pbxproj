@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		451B37022419357A0053CD98 /* FullDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451B37012419357A0053CD98 /* FullDay.swift */; };
+		451B370424193A390053CD98 /* Attribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451B370324193A390053CD98 /* Attribute.swift */; };
+		451B370624193D940053CD98 /* AttributeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451B370524193D940053CD98 /* AttributeType.swift */; };
 		451CDA732400299B00698788 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451CDA722400299B00698788 /* AppDelegate.swift */; };
 		451CDA752400299B00698788 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451CDA742400299B00698788 /* SceneDelegate.swift */; };
 		451CDA772400299B00698788 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451CDA762400299B00698788 /* ViewController.swift */; };
@@ -37,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		451B37012419357A0053CD98 /* FullDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullDay.swift; sourceTree = "<group>"; };
+		451B370324193A390053CD98 /* Attribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Attribute.swift; sourceTree = "<group>"; };
+		451B370524193D940053CD98 /* AttributeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributeType.swift; sourceTree = "<group>"; };
 		451CDA6F2400299B00698788 /* MyFitnessMate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyFitnessMate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		451CDA722400299B00698788 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		451CDA742400299B00698788 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -108,6 +114,9 @@
 			children = (
 				451CDAA2240029AC00698788 /* MyFitnessMate.entitlements */,
 				451CDA722400299B00698788 /* AppDelegate.swift */,
+				451B37012419357A0053CD98 /* FullDay.swift */,
+				451B370324193A390053CD98 /* Attribute.swift */,
+				451B370524193D940053CD98 /* AttributeType.swift */,
 				451CDA742400299B00698788 /* SceneDelegate.swift */,
 				451CDA762400299B00698788 /* ViewController.swift */,
 				451CDA782400299C00698788 /* Main.storyboard */,
@@ -276,10 +285,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				451B370624193D940053CD98 /* AttributeType.swift in Sources */,
+				451B370424193A390053CD98 /* Attribute.swift in Sources */,
 				454BCBF6240FF82600C7FE68 /* HealthkitStuff.swift in Sources */,
 				451CDA772400299B00698788 /* ViewController.swift in Sources */,
 				451CDA732400299B00698788 /* AppDelegate.swift in Sources */,
 				451CDA752400299B00698788 /* SceneDelegate.swift in Sources */,
+				451B37022419357A0053CD98 /* FullDay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
