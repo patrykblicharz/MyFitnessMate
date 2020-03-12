@@ -11,7 +11,7 @@ import Foundation
 
 
 class Attribute {
-      //  var type: AttributeType attribute type class TBD
+    var type: AttributeType
     var value: Int = 0 {
 
     
@@ -27,5 +27,9 @@ class Attribute {
         self.value = value
     }
     
+    func getScore(withWeight weight: Double, withBodyMass bodyMass: Double) -> Int {
+        return type.calculateScore(withWeight: weight, forValue: Double(value), withBodyMass: bodyMass)
+        
+    }
     
 }

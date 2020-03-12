@@ -70,9 +70,9 @@ enum AttributeType: String {
                 return 0
             }
         case .rings:
-            let stand = (FullDay.shared.attributes.first(where: {$0.type == .stand})?.getPoints(withWeight: weight, withBodyMass: bodyMass))!
-            let move = (FullDay.shared.attributes.first(where: {$0.type == .move})?.getPoints(withWeight: weight, withBodyMass: bodyMass))!
-            let exercise = (FullDay.shared.attributes.first(where: {$0.type == .exercise})?.getPoints(withWeight: weight, withBodyMass: bodyMass))!
+            let stand = (FullDay.shared.attributes.first(where: {$0.type == .stand})?.getScore(withWeight: weight, withBodyMass: bodyMass))!
+            let move = (FullDay.shared.attributes.first(where: {$0.type == .move})?.getScore(withWeight: weight, withBodyMass: bodyMass))!
+            let exercise = (FullDay.shared.attributes.first(where: {$0.type == .exercise})?.getScore(withWeight: weight, withBodyMass: bodyMass))!
             if stand >= 1 && move >= 1 && exercise >= 1 {
                 FullDay.shared.attributes.first(where: {$0.type == .rings})?.value = 3
                 return Int(1 * weight)
@@ -81,7 +81,7 @@ enum AttributeType: String {
                 if stand > 0 {
                     temp = temp + 1
                 }
-                if move = 0 {
+                if move > 0 {
                     temp = temp + 1
                 }
                 if exercise > 0 {
@@ -144,7 +144,28 @@ enum AttributeType: String {
     }
 }
 
-    func getBackgroundColour() {
-        
+    func getBackgroundColour() -> UIColor {
+        switch self {
+        case .steps:
+            return UIColor(red: 0.91, green: 0.36, blue: 0.28, alpha: 1.00)
+        case .stand:
+            return UIColor(red: 0.38, green: 0.87, blue: 0.84, alpha: 1.00)
+        case .workouts:
+            return UIColor(red: 0.91, green: 0.36, blue: 0.28, alpha: 1.00)
+        case .water:
+            return UIColor(red: 0.38, green: 0.75, blue: 0.98, alpha: 1.00)
+        case .mind:
+            return UIColor(red: 0.33, green: 0.73, blue: 0.82, alpha: 1.00)
+        case .exercise:
+            return UIColor(red: 0.66, green: 0.95, blue: 0.29, alpha: 1.00)
+        case .move:
+            return UIColor(red: 0.89, green: 0.24, blue: 0.37, alpha: 1.00)
+        case .sleep:
+            return UIColor(red: 0.49, green: 0.36, blue: 0.92, alpha: 1.00)
+        case .calories:
+            return UIColor(red: 0.32, green: 0.71, blue: 0.30, alpha: 1.00)
+        case .rings:
+            return UIColor.lightGray
+        }
     }
 }

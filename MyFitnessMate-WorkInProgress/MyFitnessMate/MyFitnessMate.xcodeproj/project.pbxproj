@@ -20,6 +20,7 @@
 		451CDA952400299D00698788 /* MyFitnessMateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451CDA942400299D00698788 /* MyFitnessMateUITests.swift */; };
 		451CDAA5240029AC00698788 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CDAA4240029AC00698788 /* HealthKit.framework */; };
 		454BCBF6240FF82600C7FE68 /* HealthkitStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454BCBF5240FF82600C7FE68 /* HealthkitStuff.swift */; };
+		45F52D82241A8EC300A9F52C /* HistoryAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F52D81241A8EC300A9F52C /* HistoryAttribute.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,7 @@
 		451CDAA2240029AC00698788 /* MyFitnessMate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyFitnessMate.entitlements; sourceTree = "<group>"; };
 		451CDAA4240029AC00698788 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		454BCBF5240FF82600C7FE68 /* HealthkitStuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthkitStuff.swift; sourceTree = "<group>"; };
+		45F52D81241A8EC300A9F52C /* HistoryAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryAttribute.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,6 +117,7 @@
 				451CDAA2240029AC00698788 /* MyFitnessMate.entitlements */,
 				451CDA722400299B00698788 /* AppDelegate.swift */,
 				451B37012419357A0053CD98 /* FullDay.swift */,
+				45F52D81241A8EC300A9F52C /* HistoryAttribute.swift */,
 				451B370324193A390053CD98 /* Attribute.swift */,
 				451B370524193D940053CD98 /* AttributeType.swift */,
 				451CDA742400299B00698788 /* SceneDelegate.swift */,
@@ -292,6 +295,7 @@
 				451CDA732400299B00698788 /* AppDelegate.swift in Sources */,
 				451CDA752400299B00698788 /* SceneDelegate.swift in Sources */,
 				451B37022419357A0053CD98 /* FullDay.swift in Sources */,
+				45F52D82241A8EC300A9F52C /* HistoryAttribute.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
