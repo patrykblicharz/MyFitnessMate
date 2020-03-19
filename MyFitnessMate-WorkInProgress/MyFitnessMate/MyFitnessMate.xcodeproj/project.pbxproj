@@ -20,6 +20,8 @@
 		451CDA952400299D00698788 /* MyFitnessMateUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 451CDA942400299D00698788 /* MyFitnessMateUITests.swift */; };
 		451CDAA5240029AC00698788 /* HealthKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 451CDAA4240029AC00698788 /* HealthKit.framework */; };
 		454BCBF6240FF82600C7FE68 /* HealthkitStuff.swift in Sources */ = {isa = PBXBuildFile; fileRef = 454BCBF5240FF82600C7FE68 /* HealthkitStuff.swift */; };
+		45CF39F624239AE000CD5FA3 /* HistoryAttributeType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CF39F524239AE000CD5FA3 /* HistoryAttributeType.swift */; };
+		45CF39F82423A48100CD5FA3 /* HistoryDay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45CF39F72423A48100CD5FA3 /* HistoryDay.swift */; };
 		45F52D82241A8EC300A9F52C /* HistoryAttribute.swift in Sources */ = {isa = PBXBuildFile; fileRef = 45F52D81241A8EC300A9F52C /* HistoryAttribute.swift */; };
 /* End PBXBuildFile section */
 
@@ -61,6 +63,8 @@
 		451CDAA2240029AC00698788 /* MyFitnessMate.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = MyFitnessMate.entitlements; sourceTree = "<group>"; };
 		451CDAA4240029AC00698788 /* HealthKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = HealthKit.framework; path = System/Library/Frameworks/HealthKit.framework; sourceTree = SDKROOT; };
 		454BCBF5240FF82600C7FE68 /* HealthkitStuff.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthkitStuff.swift; sourceTree = "<group>"; };
+		45CF39F524239AE000CD5FA3 /* HistoryAttributeType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryAttributeType.swift; sourceTree = "<group>"; };
+		45CF39F72423A48100CD5FA3 /* HistoryDay.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDay.swift; sourceTree = "<group>"; };
 		45F52D81241A8EC300A9F52C /* HistoryAttribute.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryAttribute.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -115,15 +119,17 @@
 			isa = PBXGroup;
 			children = (
 				451CDAA2240029AC00698788 /* MyFitnessMate.entitlements */,
+				451CDA762400299B00698788 /* ViewController.swift */,
 				451CDA722400299B00698788 /* AppDelegate.swift */,
+				451CDA742400299B00698788 /* SceneDelegate.swift */,
+				454BCBF5240FF82600C7FE68 /* HealthkitStuff.swift */,
 				451B37012419357A0053CD98 /* FullDay.swift */,
-				45F52D81241A8EC300A9F52C /* HistoryAttribute.swift */,
 				451B370324193A390053CD98 /* Attribute.swift */,
 				451B370524193D940053CD98 /* AttributeType.swift */,
-				451CDA742400299B00698788 /* SceneDelegate.swift */,
-				451CDA762400299B00698788 /* ViewController.swift */,
+				45CF39F72423A48100CD5FA3 /* HistoryDay.swift */,
+				45F52D81241A8EC300A9F52C /* HistoryAttribute.swift */,
+				45CF39F524239AE000CD5FA3 /* HistoryAttributeType.swift */,
 				451CDA782400299C00698788 /* Main.storyboard */,
-				454BCBF5240FF82600C7FE68 /* HealthkitStuff.swift */,
 				451CDA7B2400299C00698788 /* Assets.xcassets */,
 				451CDA7D2400299C00698788 /* LaunchScreen.storyboard */,
 				451CDA802400299C00698788 /* Info.plist */,
@@ -288,6 +294,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				45CF39F624239AE000CD5FA3 /* HistoryAttributeType.swift in Sources */,
 				451B370624193D940053CD98 /* AttributeType.swift in Sources */,
 				451B370424193A390053CD98 /* Attribute.swift in Sources */,
 				454BCBF6240FF82600C7FE68 /* HealthkitStuff.swift in Sources */,
@@ -296,6 +303,7 @@
 				451CDA752400299B00698788 /* SceneDelegate.swift in Sources */,
 				451B37022419357A0053CD98 /* FullDay.swift in Sources */,
 				45F52D82241A8EC300A9F52C /* HistoryAttribute.swift in Sources */,
+				45CF39F82423A48100CD5FA3 /* HistoryDay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

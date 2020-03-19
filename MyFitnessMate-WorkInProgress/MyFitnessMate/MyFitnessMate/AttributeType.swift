@@ -138,7 +138,7 @@ enum AttributeType: String {
         case .rings:
             return "\(value) Rings closed"
         case .sleep:
-            return "\(value) Hours"
+            return "\(value/60) Hours"
         case .calories:
             return "\(value) Consumed"
     }
